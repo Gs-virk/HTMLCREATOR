@@ -33,7 +33,7 @@ namespace HTML_CREATOR
             comboBox1.DataSource = HTML_CREATOR.Controls.ControlList;
             comboBox1.DisplayMember = "Name";
 
-            _htmlItemsList = new BindingList<HtmlItems>();
+            _htmlItemsList = new BindingList<HtmlItems>(HtmlItems.HtmlItemsList);
             listBox1.DataSource = _htmlItemsList;
             listBox1.DisplayMember = "Label";                     
         }
@@ -65,7 +65,7 @@ namespace HTML_CREATOR
                 new HtmlItems
                 {
                     Label = textBoxLabel.Text,
-                    Code = ((Controls)comboBox1.SelectedValue).ToString()
+                    Code = ((Controls)comboBox1.SelectedItem).Code.ToString()
                 });
         }
 
