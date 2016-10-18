@@ -162,7 +162,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBoxLabel);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "HTML_CREATOR";
