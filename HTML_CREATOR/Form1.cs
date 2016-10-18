@@ -29,7 +29,7 @@ namespace HTML_CREATOR
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            MessageBox.Show(listBox1.SelectedItem.ToString());
         }
 
         private void FotoButton_Click(object sender, EventArgs e)
