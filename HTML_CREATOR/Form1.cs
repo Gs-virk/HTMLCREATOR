@@ -24,12 +24,6 @@ namespace HTML_CREATOR
             listBox1.Items.AddRange(typeof(HtmlLijst).GetEnumNames());
             comboBox1.Items.AddRange(HTML_CREATOR.Controls.ControlList.ToArray());
             comboBox1.DisplayMember = "Name";
-            MessageBox.Show("Test");
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show(listBox1.SelectedItem.ToString());
         }
 
         private void FotoButton_Click(object sender, EventArgs e)
@@ -45,7 +39,7 @@ namespace HTML_CREATOR
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-           
+            MessageBox.Show(listBox1.SelectedItem.ToString());
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
