@@ -24,6 +24,7 @@ namespace HTML_CREATOR
             listBox1.Items.AddRange(typeof(HtmlLijst).GetEnumNames());
             comboBox1.Items.AddRange(HTML_CREATOR.Controls.ControlList.ToArray());
             comboBox1.DisplayMember = "Name";
+            MessageBox.Show("Test");
         }
 
         private void FotoButton_Click(object sender, EventArgs e)
