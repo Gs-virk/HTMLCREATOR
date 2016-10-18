@@ -25,7 +25,7 @@ namespace HTML_CREATOR
         {
             InitializeComponent();
             
-         //   listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
+        // listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
             _gekozenItems = new BindingList<HtmlItems>();
             listBox2.DataSource = _gekozenItems;
             listBox2.DisplayMember = "Label";
@@ -44,30 +44,16 @@ namespace HTML_CREATOR
             if (!string.IsNullOrWhiteSpace(textBoxLabel.Text))
             {
                 comboBox1.Enabled = true;
-                buttonNew.Enabled = true;
+                Toevoegen.Enabled = true;
 
             }
             else
             {
                 comboBox1.Enabled = false;
-                buttonNew.Enabled = false;
+                Toevoegen.Enabled = false;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
-        }
-
-        private void buttonNew_Click(object sender, EventArgs e)
-        {
-            _htmlItemsList.Add(
-                new HtmlItems
-                {
-                    Label = textBoxLabel.Text,
-                    Code = ((Controls)comboBox1.SelectedItem).Code.ToString()
-                });
-        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -85,6 +71,21 @@ namespace HTML_CREATOR
             catch (Exception ex)
             {
             }
+        }
+
+        private void Plus_Click(object sender, EventArgs e)
+        {
+            _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
+        }
+
+        private void Toevoegen_Click(object sender, EventArgs e)
+        {
+            _htmlItemsList.Add(
+                new HtmlItems
+                {
+                    Label = textBoxLabel.Text,
+                    Code = ((Controls)comboBox1.SelectedItem).Code.ToString()
+                });
         }
     }
 }

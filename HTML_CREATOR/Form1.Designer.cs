@@ -30,22 +30,25 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonNew = new System.Windows.Forms.Button();
+            this.Toevoegen = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBoxLabel = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Min = new System.Windows.Forms.Button();
+            this.Plus = new System.Windows.Forms.Button();
+            this.Links = new System.Windows.Forms.Button();
+            this.Rechts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(187, 90);
+            this.label3.Location = new System.Drawing.Point(233, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 24;
@@ -54,37 +57,37 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 90);
+            this.label2.Location = new System.Drawing.Point(26, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "Items";
             // 
-            // buttonNew
+            // Toevoegen
             // 
-            this.buttonNew.Enabled = false;
-            this.buttonNew.Location = new System.Drawing.Point(172, 380);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(37, 23);
-            this.buttonNew.TabIndex = 22;
-            this.buttonNew.Text = "+";
-            this.buttonNew.UseVisualStyleBackColor = true;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            this.Toevoegen.Enabled = false;
+            this.Toevoegen.Location = new System.Drawing.Point(26, 407);
+            this.Toevoegen.Name = "Toevoegen";
+            this.Toevoegen.Size = new System.Drawing.Size(139, 30);
+            this.Toevoegen.TabIndex = 22;
+            this.Toevoegen.Text = "Item Toevoegen";
+            this.Toevoegen.UseVisualStyleBackColor = true;
+            this.Toevoegen.Click += new System.EventHandler(this.Toevoegen_Click);
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(225, 106);
+            this.listBox2.Location = new System.Drawing.Point(236, 106);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(138, 238);
             this.listBox2.TabIndex = 21;
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(401, 68);
+            this.webBrowser1.Location = new System.Drawing.Point(401, 45);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(523, 493);
+            this.webBrowser1.Size = new System.Drawing.Size(523, 462);
             this.webBrowser1.TabIndex = 18;
             // 
             // comboBox1
@@ -104,16 +107,6 @@
             this.label1.Size = new System.Drawing.Size(181, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Voer een titel voor uw HTML-pagina:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(172, 201);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(47, 42);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "-->";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -140,32 +133,80 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 530);
+            this.button1.Location = new System.Drawing.Point(40, 475);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 42);
             this.button1.TabIndex = 16;
             this.button1.Text = "Opslaan";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // Min
+            // 
+            this.Min.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Min.Image = global::HTML_CREATOR.Properties.Resources.Min;
+            this.Min.Location = new System.Drawing.Point(172, 284);
+            this.Min.Name = "Min";
+            this.Min.Size = new System.Drawing.Size(57, 49);
+            this.Min.TabIndex = 27;
+            this.Min.UseVisualStyleBackColor = true;
+            // 
+            // Plus
+            // 
+            this.Plus.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Plus.Image = global::HTML_CREATOR.Properties.Resources.Add;
+            this.Plus.Location = new System.Drawing.Point(172, 229);
+            this.Plus.Name = "Plus";
+            this.Plus.Size = new System.Drawing.Size(57, 49);
+            this.Plus.TabIndex = 26;
+            this.Plus.UseVisualStyleBackColor = true;
+            this.Plus.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // Links
+            // 
+            this.Links.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Links.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Links.Image = global::HTML_CREATOR.Properties.Resources.Left;
+            this.Links.Location = new System.Drawing.Point(172, 171);
+            this.Links.Name = "Links";
+            this.Links.Size = new System.Drawing.Size(57, 49);
+            this.Links.TabIndex = 25;
+            this.Links.UseVisualStyleBackColor = true;
+            // 
+            // Rechts
+            // 
+            this.Rechts.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Rechts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Rechts.Image = global::HTML_CREATOR.Properties.Resources.Right;
+            this.Rechts.Location = new System.Drawing.Point(172, 117);
+            this.Rechts.Name = "Rechts";
+            this.Rechts.Size = new System.Drawing.Size(57, 49);
+            this.Rechts.TabIndex = 19;
+            this.Rechts.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(951, 607);
+            this.ClientSize = new System.Drawing.Size(951, 545);
+            this.Controls.Add(this.Min);
+            this.Controls.Add(this.Plus);
+            this.Controls.Add(this.Links);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonNew);
+            this.Controls.Add(this.Toevoegen);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Rechts);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBoxLabel);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "HTML_CREATOR";
@@ -179,16 +220,19 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.Button Toevoegen;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Rechts;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBoxLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Links;
+        private System.Windows.Forms.Button Plus;
+        private System.Windows.Forms.Button Min;
     }
 }
 

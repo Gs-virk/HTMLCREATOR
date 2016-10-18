@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <HtmlItems>
   <Item>
     <Label>Naam</Label>
@@ -6,6 +6,10 @@
   </Item>
   <Item>
     <Label>Voornaam</Label>
+    <Code>input type="text"</Code>
+  </Item>
+  <Item>
+    <Label>Adres</Label>
     <Code>input type="text"</Code>
   </Item>
 </HtmlItems>
