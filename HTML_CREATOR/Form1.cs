@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace HTML_CREATOR
 {
@@ -23,15 +24,18 @@ namespace HTML_CREATOR
         public Form1()
         {
             InitializeComponent();
-            _gekozenItems = new BindingList<HtmlItems>();
+            
          //   listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
+            _gekozenItems = new BindingList<HtmlItems>();
             listBox2.DataSource = _gekozenItems;
             listBox2.DisplayMember = "Label";
+
             comboBox1.DataSource = HTML_CREATOR.Controls.ControlList;
             comboBox1.DisplayMember = "Name";
+
             _htmlItemsList = new BindingList<HtmlItems>();
             listBox1.DataSource = _htmlItemsList;
-            listBox1.DisplayMember = "Label";          
+            listBox1.DisplayMember = "Label";                     
         }
 
 
@@ -67,7 +71,20 @@ namespace HTML_CREATOR
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                var xEle = new XElement("HtmlItems",
+                            from htmlItems in _htmlItemsList
+                            select new XElement("Item",
+                                           new XElement("Label", htmlItems.Label),
+                                           new XElement("Code", htmlItems.Code)
+                                       ));
 
+                xEle.Save("htmlitems.xml");
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

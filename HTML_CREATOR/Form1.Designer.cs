@@ -69,6 +69,7 @@
             this.buttonNew.TabIndex = 22;
             this.buttonNew.Text = "+";
             this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // listBox2
             // 
@@ -112,6 +113,7 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "-->";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -134,6 +136,7 @@
             this.textBoxLabel.Name = "textBoxLabel";
             this.textBoxLabel.Size = new System.Drawing.Size(139, 20);
             this.textBoxLabel.TabIndex = 17;
+            this.textBoxLabel.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
