@@ -18,15 +18,20 @@ namespace HTML_CREATOR
     }
     public partial class Form1 : Form
     {
-        private BindingList<HtmlLijst> _gekozenItems;
+        private BindingList<HtmlItems> _gekozenItems;
+        BindingList<HtmlItems> _htmlItemsList;
         public Form1()
         {
             InitializeComponent();
-            _gekozenItems = new BindingList<HtmlLijst>();
-            listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
+            _gekozenItems = new BindingList<HtmlItems>();
+         //   listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
             listBox2.DataSource = _gekozenItems;
-            comboBox1.Items.AddRange(HTML_CREATOR.Controls.ControlList.ToArray());
+            listBox2.DisplayMember = "Label";
+            comboBox1.DataSource = HTML_CREATOR.Controls.ControlList;
             comboBox1.DisplayMember = "Name";
+            _htmlItemsList = new BindingList<HtmlItems>();
+            listBox1.DataSource = _htmlItemsList;
+            listBox1.DisplayMember = "Label";          
         }
 
         private void FotoButton_Click(object sender, EventArgs e)
@@ -47,13 +52,32 @@ namespace HTML_CREATOR
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(textBox2.Text)) comboBox1.Enabled = true;
-            else comboBox1.Enabled = false;
+            if (!string.IsNullOrWhiteSpace(textBoxLabel.Text))
+            {
+                comboBox1.Enabled = true;
+                buttonNew.Enabled = true;
+
+            }
+            else
+            {
+                comboBox1.Enabled = false;
+                buttonNew.Enabled = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _gekozenItems.Add((HtmlLijst)listBox1.SelectedValue);
+            _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            _htmlItemsList.Add(
+                new HtmlItems
+                {
+                    Label = textBoxLabel.Text,
+                    Code = ((Controls)comboBox1.SelectedValue).ToString()
+                });
         }
     }
 }
