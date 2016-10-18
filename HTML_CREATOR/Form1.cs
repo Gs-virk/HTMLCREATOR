@@ -18,10 +18,13 @@ namespace HTML_CREATOR
     }
     public partial class Form1 : Form
     {
+        private BindingList<HtmlLijst> _gekozenItems;
         public Form1()
         {
             InitializeComponent();
-            listBox1.Items.AddRange(typeof(HtmlLijst).GetEnumNames());
+            _gekozenItems = new BindingList<HtmlLijst>();
+            listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
+            listBox2.DataSource = _gekozenItems;
             comboBox1.Items.AddRange(HTML_CREATOR.Controls.ControlList.ToArray());
             comboBox1.DisplayMember = "Name";
         }
@@ -39,13 +42,18 @@ namespace HTML_CREATOR
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            MessageBox.Show(listBox1.SelectedItem.ToString());
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(textBox2.Text)) comboBox1.Enabled = true;
             else comboBox1.Enabled = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _gekozenItems.Add((HtmlLijst)listBox1.SelectedValue);
         }
     }
 }
