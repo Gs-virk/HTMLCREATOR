@@ -34,21 +34,6 @@ namespace HTML_CREATOR
             listBox1.DisplayMember = "Label";          
         }
 
-        private void FotoButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                ofd.Title = "Open Image";
-                ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png" + "|All files (*.*)|*.*";
-
-            }
-        }
-
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -78,6 +63,11 @@ namespace HTML_CREATOR
                     Label = textBoxLabel.Text,
                     Code = ((Controls)comboBox1.SelectedValue).ToString()
                 });
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }
