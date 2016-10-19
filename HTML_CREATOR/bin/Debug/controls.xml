@@ -2,14 +2,18 @@
 <controls>
         <control>
             <name>Textbox</name>
-            <code><![CDATA[<input type="text"/>]]></code>
+            <code><![CDATA[input type="text"/]]></code>
         </control>
 		<control>
             <name>Passwordbox</name>
-            <code><![CDATA[<input type="password"/>]]></code>
+            <code><![CDATA[input type="password"/]]></code>
+        </control>
+		<control>
+            <name>Date</name>
+            <code><![CDATA[input type="date"/]]></code>
         </control>
 		<control>
             <name>Submit</name>
-            <code>&lt;label&gt; '" + Label + "'  &lt;/label&gt;&lt;input type="submit"/&gt;</code>
+            <code><![CDATA[input type="submit"]]></code>
         </control>
 </controls>

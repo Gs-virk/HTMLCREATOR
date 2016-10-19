@@ -38,7 +38,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBoxLabel = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonOpslaan = new System.Windows.Forms.Button();
             this.Min = new System.Windows.Forms.Button();
             this.Plus = new System.Windows.Forms.Button();
             this.Links = new System.Windows.Forms.Button();
@@ -124,7 +124,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(139, 238);
             this.listBox1.TabIndex = 15;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // textBoxLabel
             // 
@@ -134,14 +133,16 @@
             this.textBoxLabel.TabIndex = 17;
             this.textBoxLabel.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // button1
+            // buttonOpslaan
             // 
-            this.button1.Location = new System.Drawing.Point(40, 475);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 42);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Opslaan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonOpslaan.Enabled = false;
+            this.buttonOpslaan.Location = new System.Drawing.Point(40, 475);
+            this.buttonOpslaan.Name = "buttonOpslaan";
+            this.buttonOpslaan.Size = new System.Drawing.Size(108, 42);
+            this.buttonOpslaan.TabIndex = 16;
+            this.buttonOpslaan.Text = "Opslaan";
+            this.buttonOpslaan.UseVisualStyleBackColor = true;
+            this.buttonOpslaan.Click += new System.EventHandler(this.button1_Click);
             // 
             // Min
             // 
@@ -233,7 +234,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBoxLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonOpslaan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -257,7 +258,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBoxLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonOpslaan;
         private System.Windows.Forms.Button Links;
         private System.Windows.Forms.Button Plus;
         private System.Windows.Forms.Button Min;

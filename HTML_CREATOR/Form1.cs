@@ -5,6 +5,7 @@
     using System.ComponentModel;
     using System.Data;
     using System.Linq;
+    using System.Text;
     using System.Windows.Forms;
     using System.Xml.Linq;
     public partial class Form1 : Form
@@ -16,6 +17,7 @@
             InitializeComponent();
             
             _gekozenItems = new BindingList<HtmlItems>();
+            _gekozenItems.ListChanged += _gekozenItems_ListChanged;
             listBox2.DataSource = _gekozenItems;
             listBox2.DisplayMember = "Label";            
 
@@ -25,8 +27,15 @@
             _htmlItemsList = new BindingList<HtmlItems>(HtmlItems.HtmlItemsList);
             listBox1.DataSource = _htmlItemsList;
             listBox1.DisplayMember = "Label";
+
+
         }
 
+        private void _gekozenItems_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (!_gekozenItems.Any()) buttonOpslaan.Enabled = false;
+            else buttonOpslaan.Enabled = true;
+        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -74,7 +83,7 @@
                            new HtmlItems
                            {
                                Label = textBoxLabel.Text,
-                               Code = "<label>" + textBoxLabel.Text + "</label>" + ((Controls)comboBox1.SelectedItem).Code.ToString()
+                               Code = "<div><" + ((Controls)comboBox1.SelectedItem).Code.ToString() + " value=\"" + textBoxLabel.Text + "\"></div>"
                            });
             }
             else{
@@ -82,7 +91,7 @@
                                 new HtmlItems
                                 {
                                     Label = textBoxLabel.Text,
-                                    Code = "<label>" + textBoxLabel.Text + "</label>" + ((Controls)comboBox1.SelectedItem).Code.ToString()
+                                    Code = "<div><label>" + textBoxLabel.Text + "</label><" + ((Controls)comboBox1.SelectedItem).Code.ToString() + "</div>"
                                 });
             }
             
@@ -122,7 +131,7 @@
 
             foreach (HtmlItems h in _gekozenItems)
             {
-                    _htmlItemsList.Remove(h);
+                _htmlItemsList.Remove(h);
             }
 
 
@@ -145,15 +154,32 @@
 
         private void Plus_Click(object sender, EventArgs e)
         {
-            _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
-            _htmlItemsList.Remove((HtmlItems)listBox1.SelectedValue);
+            if (listBox1.SelectedItem != null)
+            {
+                _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
+                _htmlItemsList.Remove((HtmlItems)listBox1.SelectedValue);
+            }
+            
         }
 
         private void Min_Click(object sender, EventArgs e)
         {
-            _htmlItemsList.Add((HtmlItems)listBox2.SelectedValue);
-            _gekozenItems.Remove((HtmlItems)listBox2.SelectedValue);
+            if (listBox2.SelectedItem != null)
+            {
+                _htmlItemsList.Add((HtmlItems)listBox2.SelectedValue);
+                _gekozenItems.Remove((HtmlItems)listBox2.SelectedValue);
+            }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var htmlitems in _gekozenItems)
+            {
+                sb.Append(htmlitems.Code);
+            }
+
+            MessageBox.Show(sb.ToString());
+        }
     }
 }
