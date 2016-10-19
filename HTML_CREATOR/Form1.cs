@@ -1,6 +1,7 @@
 ﻿namespace HTML_CREATOR
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
     using System.Linq;
@@ -16,7 +17,7 @@
             
             _gekozenItems = new BindingList<HtmlItems>();
             listBox2.DataSource = _gekozenItems;
-            listBox2.DisplayMember = "Label";
+            listBox2.DisplayMember = "Label";            
 
             comboBox1.DataSource = HTML_CREATOR.Controls.ControlList;
             comboBox1.DisplayMember = "Name";
@@ -47,8 +48,12 @@
         {
             try
             {
+                BindingList<HtmlItems> combined = new BindingList<HtmlItems>();
+                combined.AddRange(_gekozenItems);
+                combined.AddRange(_htmlItemsList);
+
                 var xEle = new XElement("HtmlItems",
-                            from htmlItems in _htmlItemsList
+                            from htmlItems in combined
                             select new XElement("Item",
                                            new XElement("Label", htmlItems.Label),
                                            new XElement("Code", htmlItems.Code)
@@ -61,16 +66,16 @@
             }
         }
 
-        private void Plus_Click(object sender, EventArgs e)
-        {
-            _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
-        }
-
         private void Toevoegen_Click(object sender, EventArgs e)
         {
             if (((Controls)comboBox1.SelectedItem).Name == "Submit")
             {
-
+                _htmlItemsList.Add(
+                           new HtmlItems
+                           {
+                               Label = textBoxLabel.Text,
+                               Code = "<label>" + textBoxLabel.Text + "</label>" + ((Controls)comboBox1.SelectedItem).Code.ToString()
+                           });
             }
             else{
                 _htmlItemsList.Add(
@@ -85,7 +90,6 @@
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(((HtmlItems)listBox1.SelectedValue).Code.ToString());
         }
 
         private void UP_Click(object sender, EventArgs e)
@@ -108,5 +112,48 @@
                 listBox2.SetSelected(newIndex, true);
             }
         }
+
+        private void Rechts_Click(object sender, EventArgs e)
+        {
+            foreach (HtmlItems h in _htmlItemsList)
+            {
+                _gekozenItems.Add(h);
+            }
+
+            foreach (HtmlItems h in _gekozenItems)
+            {
+                    _htmlItemsList.Remove(h);
+            }
+
+
+
+        }
+
+        private void Links_Click(object sender, EventArgs e)
+        {
+            foreach (HtmlItems h in _gekozenItems)
+            {
+                _htmlItemsList.Add(h);
+            }
+
+            foreach (HtmlItems h in _htmlItemsList)
+            {
+                _gekozenItems.Remove(h);
+            }
+
+        }
+
+        private void Plus_Click(object sender, EventArgs e)
+        {
+            _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
+            _htmlItemsList.Remove((HtmlItems)listBox1.SelectedValue);
+        }
+
+        private void Min_Click(object sender, EventArgs e)
+        {
+            _htmlItemsList.Add((HtmlItems)listBox2.SelectedValue);
+            _gekozenItems.Remove((HtmlItems)listBox2.SelectedValue);
+        }
+
     }
 }

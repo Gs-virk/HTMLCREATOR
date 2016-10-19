@@ -153,6 +153,7 @@
             this.Min.Size = new System.Drawing.Size(57, 49);
             this.Min.TabIndex = 27;
             this.Min.UseVisualStyleBackColor = true;
+            this.Min.Click += new System.EventHandler(this.Min_Click);
             // 
             // Plus
             // 
@@ -176,6 +177,7 @@
             this.Links.Size = new System.Drawing.Size(57, 49);
             this.Links.TabIndex = 25;
             this.Links.UseVisualStyleBackColor = true;
+            this.Links.Click += new System.EventHandler(this.Links_Click);
             // 
             // Rechts
             // 
@@ -187,12 +189,12 @@
             this.Rechts.Size = new System.Drawing.Size(57, 49);
             this.Rechts.TabIndex = 19;
             this.Rechts.UseVisualStyleBackColor = true;
+            this.Rechts.Click += new System.EventHandler(this.Rechts_Click);
             // 
             // Up
             // 
             this.Up.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Up.Image = global::HTML_CREATOR.Properties.Resources.Up2;
             this.Up.Location = new System.Drawing.Point(378, 112);
             this.Up.Name = "Up";
             this.Up.Size = new System.Drawing.Size(37, 60);
@@ -203,7 +205,6 @@
             // 
             this.Down.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Down.Image = global::HTML_CREATOR.Properties.Resources.Down;
             this.Down.Location = new System.Drawing.Point(378, 177);
             this.Down.Name = "Down";
             this.Down.Size = new System.Drawing.Size(37, 60);

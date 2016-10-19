@@ -1,39 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HtmlItems>
   <Item>
-    <Label>Naam</Label>
-    <Code>input type="text"</Code>
+    <Label>Tesdtgf</Label>
+    <Code>&lt;label&gt;Tesdtgf&lt;/label&gt;&lt;input type="text"/&gt;</Code>
   </Item>
   <Item>
-    <Label>Voornaam</Label>
-    <Code>input type="text"</Code>
-  </Item>
-  <Item>
-    <Label>Test</Label>
-    <Code>&lt;label&gt;Male&lt;/label&gt;input type="text"</Code>
-  </Item>
-  <Item>
-    <Label>Tesdgdfgdfg</Label>
-    <Code>&lt;label&gt; " + Label + " &lt;/label&gt;input type="text"</Code>
-  </Item>
-  <Item>
-    <Label>Testdd</Label>
-    <Code>&lt;input type="text"/&gt;</Code>
-  </Item>
-  <Item>
-    <Label>Labeltest</Label>
-    <Code>&lt;label&gt; '+ Label +'  &lt;/label&gt;&lt;input type="submit"/&gt;</Code>
-  </Item>
-  <Item>
-    <Label>Test</Label>
-    <Code>&lt;label&gt; " + Label + "  &lt;/label&gt;&lt;input type="submit"/&gt;</Code>
-  </Item>
-  <Item>
-    <Label>fgdg</Label>
-    <Code>&lt;label&gt; '" + Label + "'  &lt;/label&gt;&lt;input type="submit"/&gt;</Code>
-  </Item>
-  <Item>
-    <Label>Test</Label>
-    <Code>&lt;label&gt;&lt;/label&gt;&lt;input type="text"/&gt;</Code>
+    <Label>Tesdtgfdfg</Label>
+    <Code>&lt;label&gt;Tesdtgfdfg&lt;/label&gt;&lt;input type="text"/&gt;</Code>
   </Item>
 </HtmlItems>
