@@ -42,8 +42,8 @@
 
             sb.Append("<head>")
                 .Append("<style>")
-                .Append("body { background - color: lightgray; }")
-                .Append("label {display: inline - block; width: 140px; text - align: right; }​")
+                .Append("body { background-color: lightgray; }")
+                .Append("label {display: inline-block; width: 140px; }​")
                 .Append("</style>")
                 .Append("</head>");  
                  
@@ -51,8 +51,10 @@
             {
                 sb.Append(htmlitems.Code).Append(Environment.NewLine);
             }
-
-            webBrowser1.DocumentText = sb.ToString();
+            webBrowser1.Navigate("about:blank");
+            webBrowser1.Document.OpenNew(false);
+            webBrowser1.Document.Write(sb.ToString());
+            webBrowser1.Refresh();
 
         }
 
@@ -113,6 +115,8 @@
                                     Code = "<div><label>" + textBoxLabel.Text + "</label><" + ((Controls)comboBox1.SelectedItem).Code.ToString() + "</div>"
                                 });
             }
+
+            textBoxLabel.Clear();
             
         }
 

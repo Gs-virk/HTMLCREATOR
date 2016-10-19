@@ -16,4 +16,8 @@
             <name>Submit</name>
             <code><![CDATA[input type="submit"]]></code>
         </control>
+		<control>
+            <name>Browser</name>
+            <code><![CDATA[input type="file"]]></code>
+        </control>
 </controls>
