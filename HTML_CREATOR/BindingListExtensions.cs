@@ -30,7 +30,7 @@
         public static void MoveDown<T>(this BindingList<T> list, int index)
         {
             int newIndex = index + 1;
-            if (newIndex <= (list.Count - 1))
+            if (newIndex != list.Count)
             {
                 var item = list[index];
                 list.RemoveAt(index);
