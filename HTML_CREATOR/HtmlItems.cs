@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,24 @@ namespace HTML_CREATOR
                     Label = (string)e.Element("Label"),
                     Code = (string)e.Element("Code")
                 }).ToList();
+            }
+        }
+
+        public static void Save(IEnumerable<HtmlItems> list)
+        {
+            try
+            {
+                var xEle = new XElement("HtmlItems",
+                            from htmlItems in list
+                            select new XElement("Item",
+                                           new XElement("Label", htmlItems.Label),
+                                           new XElement("Code", htmlItems.Code)
+                                       ));
+
+                xEle.Save("htmlitems.xml");
+            }
+            catch (Exception ex)
+            {
             }
         }
     }

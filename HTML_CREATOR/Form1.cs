@@ -1,13 +1,11 @@
 ﻿namespace HTML_CREATOR
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Data;
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
-    using System.Xml.Linq;
+
     public partial class Form1 : Form
     {
         private BindingList<HtmlItems> _gekozenItems;
@@ -65,7 +63,6 @@
             {
                 comboBox1.Enabled = true;
                 Toevoegen.Enabled = true;
-
             }
             else
             {
@@ -77,25 +74,10 @@
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                BindingList<HtmlItems> combined = new BindingList<HtmlItems>();
-                combined.AddRange(_gekozenItems);
-                combined.AddRange(_htmlItemsList);
-
-                var xEle = new XElement("HtmlItems",
-                            from htmlItems in combined
-                            select new XElement("Item",
-                                           new XElement("Label", htmlItems.Label),
-                                           new XElement("Code", htmlItems.Code)
-                                       ));
-
-                xEle.Save("htmlitems.xml");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            BindingList<HtmlItems> combined = new BindingList<HtmlItems>();
+            combined.AddRange(_gekozenItems);
+            combined.AddRange(_htmlItemsList);
+            HtmlItems.Save(combined);
         }
 
         private void Toevoegen_Click(object sender, EventArgs e)
@@ -122,44 +104,21 @@
 
         private void UP_Click(object sender, EventArgs e)
         {
-            int newIndex = listBox2.SelectedIndex - 1;
-            if (newIndex != -1)
-            {
-                var item = _gekozenItems[listBox2.SelectedIndex];
-                _gekozenItems.RemoveAt(listBox2.SelectedIndex);
-                _gekozenItems.Insert(newIndex, item);
-                listBox2.SelectedItem = item;
-            }            
+            var selectedIndex = listBox2.SelectedIndex;
+            _gekozenItems.MoveUp(selectedIndex);
+            listBox2.SelectedIndex = selectedIndex - 1;
         }
 
         private void Rechts_Click(object sender, EventArgs e)
         {
-            foreach (HtmlItems h in _htmlItemsList)
-            {
-                _gekozenItems.Add(h);
-            }
-
-            foreach (HtmlItems h in _gekozenItems)
-            {
-                _htmlItemsList.Remove(h);
-            }
-
-
-
+            _gekozenItems.AddRange(_htmlItemsList);
+            _htmlItemsList.Clear();
         }
 
         private void Links_Click(object sender, EventArgs e)
         {
-            foreach (HtmlItems h in _gekozenItems)
-            {
-                _htmlItemsList.Add(h);
-            }
-
-            foreach (HtmlItems h in _htmlItemsList)
-            {
-                _gekozenItems.Remove(h);
-            }
-
+            _htmlItemsList.AddRange(_gekozenItems);
+            _gekozenItems.Clear();
         }
 
         private void Plus_Click(object sender, EventArgs e)
@@ -194,14 +153,9 @@
 
         private void Down_Click(object sender, EventArgs e)
         {
-            int newIndex = listBox2.SelectedIndex + 1;
-            if (newIndex <= (_gekozenItems.Count-1))
-            {
-                var item = _gekozenItems[listBox2.SelectedIndex];
-                _gekozenItems.RemoveAt(listBox2.SelectedIndex);
-                _gekozenItems.Insert(newIndex, item);
-                listBox2.SelectedItem = item;
-            }
+            var index = listBox2.SelectedIndex;
+            _gekozenItems.MoveDown(index);
+            listBox2.SelectedIndex = index + 1;
         }
     }
 }

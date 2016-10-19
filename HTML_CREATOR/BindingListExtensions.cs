@@ -16,5 +16,26 @@
                 list.Add(t);
             }
         }
+
+        public static void MoveUp<T>(this BindingList<T> list, int index)
+        {
+            int newIndex = index - 1;
+            if (newIndex != -1)
+            {
+                var item = list[index];
+                list.RemoveAt(index);
+                list.Insert(newIndex, item);
+            }
+        }
+        public static void MoveDown<T>(this BindingList<T> list, int index)
+        {
+            int newIndex = index + 1;
+            if (newIndex <= (list.Count - 1))
+            {
+                var item = list[index];
+                list.RemoveAt(index);
+                list.Insert(newIndex, item);
+            }
+        }
     }
 }
