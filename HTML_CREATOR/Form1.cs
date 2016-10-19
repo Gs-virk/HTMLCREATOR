@@ -35,6 +35,17 @@
         private void _gekozenItems_ListChanged(object sender, ListChangedEventArgs e)
         {
             UpdateWeb();
+
+            if (_gekozenItems.Count == 0)
+            {
+                Up.Enabled = false;
+                Down.Enabled = false;
+            }
+            else
+            {
+                Up.Enabled = true;
+                Down.Enabled = true;
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -93,16 +104,12 @@
         {
             _gekozenItems.AddRange(_htmlItemsList);
             _htmlItemsList.Clear();
-            Up.Enabled = true;
-            Down.Enabled = true;
         }
 
         private void Links_Click(object sender, EventArgs e)
         {
             _htmlItemsList.AddRange(_gekozenItems);
-            _gekozenItems.Clear();
-            Up.Enabled = false;
-            Down.Enabled = false;
+            _gekozenItems.Clear();         
         }
 
         private void Plus_Click(object sender, EventArgs e)
@@ -112,7 +119,6 @@
                 _gekozenItems.Add((HtmlItems)listBox1.SelectedValue);
                 _htmlItemsList.Remove((HtmlItems)listBox1.SelectedValue);
             }
-            
         }
 
         private void Min_Click(object sender, EventArgs e)
