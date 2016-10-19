@@ -23,7 +23,7 @@
 
             _htmlItemsList = new BindingList<HtmlItems>(HtmlItems.HtmlItemsList);
             listBox1.DataSource = _htmlItemsList;
-            listBox1.DisplayMember = "Label";                     
+            listBox1.DisplayMember = "Label";
         }
 
 
@@ -86,6 +86,27 @@
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             MessageBox.Show(((HtmlItems)listBox1.SelectedValue).Code.ToString());
+        }
+
+        private void UP_Click(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select an item to move", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int newIndex = listBox2.SelectedIndex - 1;
+                if (newIndex < 0)
+                    return;
+                object selecteditem = listBox2.SelectedItem;
+
+                listBox2.Items.Remove(selecteditem);
+
+                listBox2.Items.Insert(newIndex, selecteditem);
+
+                listBox2.SetSelected(newIndex, true);
+            }
         }
     }
 }
