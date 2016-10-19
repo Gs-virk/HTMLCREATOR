@@ -104,9 +104,9 @@
 
         private void UP_Click(object sender, EventArgs e)
         {
-            var selectedIndex = listBox2.SelectedIndex;
-            _gekozenItems.MoveUp(selectedIndex);
-            listBox2.SelectedIndex = selectedIndex - 1;
+            var item = listBox2.SelectedItem;
+            _gekozenItems.MoveUp(listBox2.SelectedIndex);
+            listBox2.SelectedItem = item;
         }
 
         private void Rechts_Click(object sender, EventArgs e)
@@ -153,9 +153,9 @@
 
         private void Down_Click(object sender, EventArgs e)
         {
-            var index = listBox2.SelectedIndex;
-            _gekozenItems.MoveDown(index);
-            listBox2.SelectedIndex = index + 1;
+            var item = listBox2.SelectedItem;
+            _gekozenItems.MoveDown(listBox2.SelectedIndex);
+            listBox2.SelectedItem = item;
         }
     }
 }
