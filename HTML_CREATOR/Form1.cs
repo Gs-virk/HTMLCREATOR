@@ -68,12 +68,24 @@
 
         private void Toevoegen_Click(object sender, EventArgs e)
         {
-            _htmlItemsList.Add(
-                new HtmlItems
-                {
-                    Label = textBoxLabel.Text,
-                    Code = ((Controls)comboBox1.SelectedItem).Code.ToString()
-                });
+            if (((Controls)comboBox1.SelectedItem).Name == "Submit")
+            {
+
+            }
+            else{
+                _htmlItemsList.Add(
+                                new HtmlItems
+                                {
+                                    Label = textBoxLabel.Text,
+                                    Code = "<label>" + textBoxLabel.Text + "</label>" + ((Controls)comboBox1.SelectedItem).Code.ToString()
+                                });
+            }
+            
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(((HtmlItems)listBox1.SelectedValue).Code.ToString());
         }
     }
 }
