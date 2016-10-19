@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-
-namespace HTML_CREATOR
+﻿namespace HTML_CREATOR
 {
-    public enum HtmlLijst
-    {
-        Voornaam, Naam, Geslacht, Gehuwd, Geboortedatum,
-        Studie, Email, Straat, Huisnummer, Postcode,
-        Gemeente, Land, Telefoon
-    }
+    using System;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Linq;
+    using System.Windows.Forms;
+    using System.Xml.Linq;
     public partial class Form1 : Form
     {
         private BindingList<HtmlItems> _gekozenItems;
@@ -25,7 +14,6 @@ namespace HTML_CREATOR
         {
             InitializeComponent();
             
-        // listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
             _gekozenItems = new BindingList<HtmlItems>();
             listBox2.DataSource = _gekozenItems;
             listBox2.DisplayMember = "Label";
