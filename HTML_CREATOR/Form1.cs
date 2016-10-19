@@ -12,10 +12,13 @@
     {
         private BindingList<HtmlItems> _gekozenItems;
         BindingList<HtmlItems> _htmlItemsList;
+        private StringBuilder sb;
         public Form1()
         {
             InitializeComponent();
-            
+
+            sb = new StringBuilder();
+
             _gekozenItems = new BindingList<HtmlItems>();
             _gekozenItems.ListChanged += _gekozenItems_ListChanged;
             listBox2.DataSource = _gekozenItems;
@@ -35,6 +38,22 @@
         {
             if (!_gekozenItems.Any()) buttonOpslaan.Enabled = false;
             else buttonOpslaan.Enabled = true;
+            sb.Clear();
+
+            sb.Append("<head>")
+                .Append("<style>")
+                .Append("body { background - color: lightgray; }")
+                .Append("label {display: inline - block; width: 140px; text - align: right; }​")
+                .Append("</style>")
+                .Append("</head>");  
+                 
+            foreach (var htmlitems in _gekozenItems)
+            {
+                sb.Append(htmlitems.Code).Append(Environment.NewLine);
+            }
+
+            webBrowser1.DocumentText = sb.ToString();
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -95,10 +114,6 @@
                                 });
             }
             
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void UP_Click(object sender, EventArgs e)
@@ -173,13 +188,13 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (var htmlitems in _gekozenItems)
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Web Pagina | *.html";
+            sfd.DefaultExt = "html";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                sb.Append(htmlitems.Code);
+                System.IO.File.WriteAllText(@sfd.FileName, sb.ToString());
             }
-
-            MessageBox.Show(sb.ToString());
         }
     }
 }
