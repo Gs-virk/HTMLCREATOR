@@ -117,6 +117,7 @@
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(193, 20);
             this.textBoxTitle.TabIndex = 14;
+            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
             // 
             // listBox1
             // 

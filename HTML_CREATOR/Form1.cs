@@ -34,27 +34,7 @@
 
         private void _gekozenItems_ListChanged(object sender, ListChangedEventArgs e)
         {
-            if (!_gekozenItems.Any()) buttonOpslaan.Enabled = false;
-            else buttonOpslaan.Enabled = true;
-            sb.Clear();
-
-            sb.Append("<head>").Append(Environment.NewLine)
-                .Append("<title>").Append(textBoxTitle.Text).Append("</title>").Append(Environment.NewLine)
-                .Append("<style>").Append(Environment.NewLine)
-                .Append("body { background-color: lightgray; }").Append(Environment.NewLine)
-                .Append("label {display: inline-block; width: 140px; }​").Append(Environment.NewLine)
-                .Append("</style>").Append(Environment.NewLine)
-                .Append("</head>").Append(Environment.NewLine);  
-                 
-            foreach (var htmlitems in _gekozenItems)
-            {
-                sb.Append(htmlitems.Code).Append(Environment.NewLine);
-            }
-            webBrowser1.Navigate("about:blank");
-            webBrowser1.Document.OpenNew(false);
-            webBrowser1.Document.Write(sb.ToString());
-            webBrowser1.Refresh();
-
+            UpdateWeb();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -156,6 +136,35 @@
             var item = listBox2.SelectedItem;
             _gekozenItems.MoveDown(listBox2.SelectedIndex);
             listBox2.SelectedItem = item;
+        }
+
+        private void UpdateWeb()
+        {
+            if (!_gekozenItems.Any()) buttonOpslaan.Enabled = false;
+            else buttonOpslaan.Enabled = true;
+            sb.Clear();
+
+            sb.Append("<head>").Append(Environment.NewLine)
+                .Append("<title>").Append(textBoxTitle.Text).Append("</title>").Append(Environment.NewLine)
+                .Append("<style>").Append(Environment.NewLine)
+                .Append("body { background-color: lightgray; }").Append(Environment.NewLine)
+                .Append("label {display: inline-block; width: 140px; }​").Append(Environment.NewLine)
+                .Append("</style>").Append(Environment.NewLine)
+                .Append("</head>").Append(Environment.NewLine);
+
+            foreach (var htmlitems in _gekozenItems)
+            {
+                sb.Append(htmlitems.Code).Append(Environment.NewLine);
+            }
+            webBrowser1.Navigate("about:blank");
+            webBrowser1.Document.OpenNew(false);
+            webBrowser1.Document.Write(sb.ToString());
+            webBrowser1.Refresh();
+        }
+
+        private void textBoxTitle_TextChanged(object sender, EventArgs e)
+        {
+            UpdateWeb();
         }
     }
 }

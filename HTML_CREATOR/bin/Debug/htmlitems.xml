@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HtmlItems>
   <Item>
-    <Label>TestItem</Label>
-    <Code>&lt;div&gt;&lt;label&gt;TestItem&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
-  </Item>
-  <Item>
     <Label>Naam</Label>
     <Code>&lt;div&gt;&lt;label&gt;Naam&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
   </Item>
@@ -23,6 +19,10 @@
   <Item>
     <Label>Verzenden</Label>
     <Code>&lt;div&gt;&lt;input type="submit" value="Verzenden"&gt;&lt;/div&gt;</Code>
+  </Item>
+  <Item>
+    <Label>TestItem</Label>
+    <Code>&lt;div&gt;&lt;label&gt;TestItem&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
   </Item>
   <Item>
     <Label>Adres</Label>
