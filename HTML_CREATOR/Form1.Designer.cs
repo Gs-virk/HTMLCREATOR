@@ -43,6 +43,8 @@
             this.Plus = new System.Windows.Forms.Button();
             this.Links = new System.Windows.Forms.Button();
             this.Rechts = new System.Windows.Forms.Button();
+            this.Up = new System.Windows.Forms.Button();
+            this.Down = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -84,10 +86,10 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(401, 45);
+            this.webBrowser1.Location = new System.Drawing.Point(424, 45);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(523, 462);
+            this.webBrowser1.Size = new System.Drawing.Size(500, 462);
             this.webBrowser1.TabIndex = 18;
             // 
             // comboBox1
@@ -186,12 +188,36 @@
             this.Rechts.TabIndex = 19;
             this.Rechts.UseVisualStyleBackColor = true;
             // 
+            // Up
+            // 
+            this.Up.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Up.Image = global::HTML_CREATOR.Properties.Resources.Up2;
+            this.Up.Location = new System.Drawing.Point(378, 112);
+            this.Up.Name = "Up";
+            this.Up.Size = new System.Drawing.Size(37, 60);
+            this.Up.TabIndex = 28;
+            this.Up.UseVisualStyleBackColor = true;
+            // 
+            // Down
+            // 
+            this.Down.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Down.Image = global::HTML_CREATOR.Properties.Resources.Down;
+            this.Down.Location = new System.Drawing.Point(378, 177);
+            this.Down.Name = "Down";
+            this.Down.Size = new System.Drawing.Size(37, 60);
+            this.Down.TabIndex = 29;
+            this.Down.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(951, 545);
+            this.Controls.Add(this.Down);
+            this.Controls.Add(this.Up);
             this.Controls.Add(this.Min);
             this.Controls.Add(this.Plus);
             this.Controls.Add(this.Links);
@@ -234,6 +260,8 @@
         private System.Windows.Forms.Button Links;
         private System.Windows.Forms.Button Plus;
         private System.Windows.Forms.Button Min;
+        private System.Windows.Forms.Button Up;
+        private System.Windows.Forms.Button Down;
     }
 }
 
