@@ -8,8 +8,4 @@
     <Label>Voornaam</Label>
     <Code>input type="text"</Code>
   </Item>
-  <Item>
-    <Label>Adres</Label>
-    <Code>input type="text"</Code>
-  </Item>
 </HtmlItems>
