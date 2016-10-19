@@ -40,12 +40,13 @@
             else buttonOpslaan.Enabled = true;
             sb.Clear();
 
-            sb.Append("<head>")
-                .Append("<style>")
-                .Append("body { background-color: lightgray; }")
-                .Append("label {display: inline-block; width: 140px; }​")
-                .Append("</style>")
-                .Append("</head>");  
+            sb.Append("<head>").Append(Environment.NewLine)
+                .Append("<title>").Append(textBoxTitle.Text).Append("</title>").Append(Environment.NewLine)
+                .Append("<style>").Append(Environment.NewLine)
+                .Append("body { background-color: lightgray; }").Append(Environment.NewLine)
+                .Append("label {display: inline-block; width: 140px; }​").Append(Environment.NewLine)
+                .Append("</style>").Append(Environment.NewLine)
+                .Append("</head>").Append(Environment.NewLine);  
                  
             foreach (var htmlitems in _gekozenItems)
             {

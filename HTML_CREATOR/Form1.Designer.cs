@@ -35,7 +35,7 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBoxLabel = new System.Windows.Forms.TextBox();
             this.buttonOpslaan = new System.Windows.Forms.Button();
@@ -112,12 +112,12 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Voer een titel voor uw HTML-pagina:";
             // 
-            // textBox1
+            // textBoxTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 14;
+            this.textBoxTitle.Location = new System.Drawing.Point(26, 50);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(193, 20);
+            this.textBoxTitle.TabIndex = 14;
             // 
             // listBox1
             // 
@@ -233,7 +233,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Rechts);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxTitle);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBoxLabel);
             this.Controls.Add(this.buttonOpslaan);
@@ -257,7 +257,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Rechts;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBoxLabel;
         private System.Windows.Forms.Button buttonOpslaan;
