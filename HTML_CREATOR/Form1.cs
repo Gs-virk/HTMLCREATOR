@@ -113,12 +113,16 @@
         {
             _gekozenItems.AddRange(_htmlItemsList);
             _htmlItemsList.Clear();
+            Up.Enabled = true;
+            Down.Enabled = true;
         }
 
         private void Links_Click(object sender, EventArgs e)
         {
             _htmlItemsList.AddRange(_gekozenItems);
             _gekozenItems.Clear();
+            Up.Enabled = false;
+            Down.Enabled = false;
         }
 
         private void Plus_Click(object sender, EventArgs e)
@@ -140,7 +144,14 @@
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Down_Click(object sender, EventArgs e)
+        {
+            var item = listBox2.SelectedItem;
+            _gekozenItems.MoveDown(listBox2.SelectedIndex);
+            listBox2.SelectedItem = item;
+        }
+
+        private void buttonOpslaan_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Web Pagina | *.html";
@@ -151,11 +162,9 @@
             }
         }
 
-        private void Down_Click(object sender, EventArgs e)
+        private void Verwijderen_Click(object sender, EventArgs e)
         {
-            var item = listBox2.SelectedItem;
-            _gekozenItems.MoveDown(listBox2.SelectedIndex);
-            listBox2.SelectedItem = item;
+
         }
     }
 }

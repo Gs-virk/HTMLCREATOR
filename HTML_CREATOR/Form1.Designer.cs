@@ -46,6 +46,7 @@
             this.Up = new System.Windows.Forms.Button();
             this.Down = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.Verwijderen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -137,13 +138,13 @@
             // buttonOpslaan
             // 
             this.buttonOpslaan.Enabled = false;
-            this.buttonOpslaan.Location = new System.Drawing.Point(40, 475);
+            this.buttonOpslaan.Location = new System.Drawing.Point(40, 505);
             this.buttonOpslaan.Name = "buttonOpslaan";
             this.buttonOpslaan.Size = new System.Drawing.Size(108, 42);
             this.buttonOpslaan.TabIndex = 16;
             this.buttonOpslaan.Text = "Opslaan";
             this.buttonOpslaan.UseVisualStyleBackColor = true;
-            this.buttonOpslaan.Click += new System.EventHandler(this.button1_Click);
+            this.buttonOpslaan.Click += new System.EventHandler(this.buttonOpslaan_Click);
             // 
             // Min
             // 
@@ -195,6 +196,7 @@
             // 
             // Up
             // 
+            this.Up.Enabled = false;
             this.Up.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Up.Image = global::HTML_CREATOR.Properties.Resources.Up2;
@@ -207,6 +209,7 @@
             // 
             // Down
             // 
+            this.Down.Enabled = false;
             this.Down.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Down.Image = global::HTML_CREATOR.Properties.Resources.Down;
@@ -226,12 +229,23 @@
             this.label4.TabIndex = 30;
             this.label4.Text = "Nieuw item:";
             // 
+            // Verwijderen
+            // 
+            this.Verwijderen.Location = new System.Drawing.Point(26, 466);
+            this.Verwijderen.Name = "Verwijderen";
+            this.Verwijderen.Size = new System.Drawing.Size(139, 30);
+            this.Verwijderen.TabIndex = 31;
+            this.Verwijderen.Text = "Item Verwijderen";
+            this.Verwijderen.UseVisualStyleBackColor = true;
+            this.Verwijderen.Click += new System.EventHandler(this.Verwijderen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1021, 545);
+            this.ClientSize = new System.Drawing.Size(1021, 583);
+            this.Controls.Add(this.Verwijderen);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.Up);
@@ -280,6 +294,7 @@
         private System.Windows.Forms.Button Up;
         private System.Windows.Forms.Button Down;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Verwijderen;
     }
 }
 
