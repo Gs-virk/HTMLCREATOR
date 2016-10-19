@@ -87,10 +87,10 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(424, 45);
+            this.webBrowser1.Location = new System.Drawing.Point(510, 45);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(500, 462);
+            this.webBrowser1.Size = new System.Drawing.Size(483, 462);
             this.webBrowser1.TabIndex = 18;
             // 
             // comboBox1
@@ -197,7 +197,8 @@
             // 
             this.Up.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Up.Location = new System.Drawing.Point(378, 112);
+            this.Up.Image = global::HTML_CREATOR.Properties.Resources.Up2;
+            this.Up.Location = new System.Drawing.Point(377, 114);
             this.Up.Name = "Up";
             this.Up.Size = new System.Drawing.Size(37, 60);
             this.Up.TabIndex = 28;
@@ -208,7 +209,8 @@
             // 
             this.Down.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Down.Location = new System.Drawing.Point(378, 177);
+            this.Down.Image = global::HTML_CREATOR.Properties.Resources.Down;
+            this.Down.Location = new System.Drawing.Point(377, 177);
             this.Down.Name = "Down";
             this.Down.Size = new System.Drawing.Size(37, 60);
             this.Down.TabIndex = 29;
@@ -229,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(951, 545);
+            this.ClientSize = new System.Drawing.Size(1021, 545);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.Up);
