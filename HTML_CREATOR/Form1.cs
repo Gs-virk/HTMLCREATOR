@@ -24,8 +24,8 @@ namespace HTML_CREATOR
         public Form1()
         {
             InitializeComponent();
-            
-        // listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
+
+            // listBox1.DataSource = Enum.GetValues(typeof(HtmlLijst));
             _gekozenItems = new BindingList<HtmlItems>();
             listBox2.DataSource = _gekozenItems;
             listBox2.DisplayMember = "Label";
@@ -35,7 +35,7 @@ namespace HTML_CREATOR
 
             _htmlItemsList = new BindingList<HtmlItems>(HtmlItems.HtmlItemsList);
             listBox1.DataSource = _htmlItemsList;
-            listBox1.DisplayMember = "Label";                     
+            listBox1.DisplayMember = "Label";
         }
 
 
@@ -86,6 +86,27 @@ namespace HTML_CREATOR
                     Label = textBoxLabel.Text,
                     Code = ((Controls)comboBox1.SelectedItem).Code.ToString()
                 });
+        }
+
+        private void UP_Click(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select an item to move", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int newIndex = listBox2.SelectedIndex - 1;
+                if (newIndex < 0)
+                    return;
+                object selecteditem = listBox2.SelectedItem;
+
+                listBox2.Items.Remove(selecteditem);
+
+                listBox2.Items.Insert(newIndex, selecteditem);
+
+                listBox2.SetSelected(newIndex, true);
+            }
         }
     }
 }
