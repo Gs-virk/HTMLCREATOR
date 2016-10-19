@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HtmlItems>
   <Item>
-    <Label>Naam</Label>
-    <Code>&lt;div&gt;&lt;label&gt;Naam&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
-  </Item>
-  <Item>
     <Label>Voornaam</Label>
     <Code>&lt;div&gt;&lt;label&gt;Voornaam&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
+  </Item>
+  <Item>
+    <Label>Adres</Label>
+    <Code>&lt;div&gt;&lt;label&gt;Adres&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
+  </Item>
+  <Item>
+    <Label>Naam</Label>
+    <Code>&lt;div&gt;&lt;label&gt;Naam&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
   </Item>
   <Item>
     <Label>Geboorte Datum</Label>
@@ -15,10 +19,6 @@
   <Item>
     <Label>Foto</Label>
     <Code>&lt;div&gt;&lt;label&gt;Foto&lt;/label&gt;&lt;input type="file"&lt;/div&gt;</Code>
-  </Item>
-  <Item>
-    <Label>Adres</Label>
-    <Code>&lt;div&gt;&lt;label&gt;Adres&lt;/label&gt;&lt;input type="text"/&lt;/div&gt;</Code>
   </Item>
   <Item>
     <Label>Verzenden</Label>

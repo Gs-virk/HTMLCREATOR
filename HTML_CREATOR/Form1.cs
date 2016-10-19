@@ -94,6 +94,7 @@
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -116,30 +117,19 @@
                                     Code = "<div><label>" + textBoxLabel.Text + "</label><" + ((Controls)comboBox1.SelectedItem).Code.ToString() + "</div>"
                                 });
             }
-
-            textBoxLabel.Clear();
-            
+            textBoxLabel.Clear();            
         }
 
         private void UP_Click(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndex == -1)
+            int newIndex = listBox2.SelectedIndex - 1;
+            if (newIndex != -1)
             {
-                MessageBox.Show("Select an item to move", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                int newIndex = listBox2.SelectedIndex - 1;
-                if (newIndex < 0)
-                    return;
-                object selecteditem = listBox2.SelectedItem;
-
-                listBox2.Items.Remove(selecteditem);
-
-                listBox2.Items.Insert(newIndex, selecteditem);
-
-                listBox2.SetSelected(newIndex, true);
-            }
+                var item = _gekozenItems[listBox2.SelectedIndex];
+                _gekozenItems.RemoveAt(listBox2.SelectedIndex);
+                _gekozenItems.Insert(newIndex, item);
+                listBox2.SelectedItem = item;
+            }            
         }
 
         private void Rechts_Click(object sender, EventArgs e)
@@ -199,6 +189,18 @@
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 System.IO.File.WriteAllText(@sfd.FileName, sb.ToString());
+            }
+        }
+
+        private void Down_Click(object sender, EventArgs e)
+        {
+            int newIndex = listBox2.SelectedIndex + 1;
+            if (newIndex <= (_gekozenItems.Count-1))
+            {
+                var item = _gekozenItems[listBox2.SelectedIndex];
+                _gekozenItems.RemoveAt(listBox2.SelectedIndex);
+                _gekozenItems.Insert(newIndex, item);
+                listBox2.SelectedItem = item;
             }
         }
     }

@@ -45,6 +45,7 @@
             this.Rechts = new System.Windows.Forms.Button();
             this.Up = new System.Windows.Forms.Button();
             this.Down = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -68,7 +69,7 @@
             // Toevoegen
             // 
             this.Toevoegen.Enabled = false;
-            this.Toevoegen.Location = new System.Drawing.Point(26, 407);
+            this.Toevoegen.Location = new System.Drawing.Point(26, 428);
             this.Toevoegen.Name = "Toevoegen";
             this.Toevoegen.Size = new System.Drawing.Size(139, 30);
             this.Toevoegen.TabIndex = 22;
@@ -86,8 +87,6 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.webBrowser1.Location = new System.Drawing.Point(424, 45);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
@@ -98,7 +97,7 @@
             // 
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(26, 380);
+            this.comboBox1.Location = new System.Drawing.Point(26, 401);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(139, 21);
             this.comboBox1.TabIndex = 20;
@@ -129,7 +128,7 @@
             // 
             // textBoxLabel
             // 
-            this.textBoxLabel.Location = new System.Drawing.Point(26, 353);
+            this.textBoxLabel.Location = new System.Drawing.Point(26, 374);
             this.textBoxLabel.Name = "textBoxLabel";
             this.textBoxLabel.Size = new System.Drawing.Size(139, 20);
             this.textBoxLabel.TabIndex = 17;
@@ -203,6 +202,7 @@
             this.Up.Size = new System.Drawing.Size(37, 60);
             this.Up.TabIndex = 28;
             this.Up.UseVisualStyleBackColor = true;
+            this.Up.Click += new System.EventHandler(this.UP_Click);
             // 
             // Down
             // 
@@ -213,6 +213,16 @@
             this.Down.Size = new System.Drawing.Size(37, 60);
             this.Down.TabIndex = 29;
             this.Down.UseVisualStyleBackColor = true;
+            this.Down.Click += new System.EventHandler(this.Down_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 355);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Nieuw item:";
             // 
             // Form1
             // 
@@ -220,6 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(951, 545);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.Up);
             this.Controls.Add(this.Min);
@@ -266,6 +277,7 @@
         private System.Windows.Forms.Button Min;
         private System.Windows.Forms.Button Up;
         private System.Windows.Forms.Button Down;
+        private System.Windows.Forms.Label label4;
     }
 }
 
